@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiConsumoService } from '../services/api-consumo.service';
 import { NavController } from '@ionic/angular';
-import { Auth, getAuth } from '@angular/fire/auth';
+import { Auth } from '@angular/fire/auth';
 import { UserService } from '../services/user.service';
 import User from '../interfaces/user.interface';
 @Component({
@@ -11,22 +11,24 @@ import User from '../interfaces/user.interface';
 })
 export class HomePage implements OnInit {
   users: User[] = [];
-  user: string | null | undefined ;
-  userID: string | null=null ;
+  user: string | null | undefined;
+  username: string | null | undefined;
+
 
   datos: any
   dataStorage: any
-  data:any
+  data: any
   constructor(private apiService: ApiConsumoService,
     private navCtrl: NavController,
-    private useService: UserService) { }
+    private useService: UserService,
+    private auth: Auth) { }
 
   ngOnInit() {
-    //revisar variable USER | solo revision
-    //Obtiene el nombre del user actual
-    const user = getAuth().currentUser
-    this.user = user?.displayName
 
+    const user = this.auth.currentUser
+    
+    this.username = user?.displayName
+    console.log(this.username)
     this.allUsers();
 
 
@@ -44,19 +46,15 @@ export class HomePage implements OnInit {
     //     console.log(Info)
     //     localStorage.setItem('data', JSON.stringify(this.datos))
 
-
-
-
-
-
     //   })
     // }
+
   }
 
-  allUsers(){
-    this.useService.getAllUser().subscribe((users=>{
+  allUsers() {
+    this.useService.getAllUser().subscribe((users => {
       this.users = users
-      console.log(this.users)
+      // console.log('Funcion allUsers(): ',this.users)
 
     }))
   }
@@ -67,6 +65,9 @@ export class HomePage implements OnInit {
   Filtrar() {
     this.navCtrl.navigateRoot('/editar-perfil');
   }
+
+
+
 
 
 }

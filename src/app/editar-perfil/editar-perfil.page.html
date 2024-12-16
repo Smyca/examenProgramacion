@@ -15,27 +15,30 @@
       <ion-fab-button class="camera-edit" (click)="addPhotoToGallery()">
         <ion-icon name="camera"></ion-icon>
       </ion-fab-button>
-      <!-- <u class="usuario">bapg</u> -->
+
       <form [formGroup]="formGroup" (ngSubmit)="updateUser()">
 
         <div class="container-input">
           <div class="input-field">
-            <input formControlName="user" type="text" required spellcheck="false" [(ngModel)]="user">
+            <input formControlName="username" type="text" required spellcheck="false" >
             <label>usuario</label>
           </div>
-          <!-- <p class="nombre">Benjamin Gonzalez</p> -->
+     
           <div class="input-field">
-            <input formControlName="name" type="text" required spellcheck="false" value="Benjamin Gonzalez">
+            <input formControlName="name" type="text" required spellcheck="false" >
             <label>nombre</label>
           </div>
           <div class="input-field">
-            <input formControlName="age" type="number" required spellcheck="false" value="24">
+            <input formControlName="age" type="number" required spellcheck="false" >
             <label>edad</label>
           </div>
-          <!-- <p class="descripcion">Hola mi nombre es benjamin soy un estudiante de el instituto duoc uc que esta cursando la carrera de ingenieria en informatica. Voy ya en mi segundo año y estoy interesado por la ciberseguridad. </p> -->
+          <div class="input-field">
+            <input formControlName="carrera" type="text" required spellcheck="false">
+            <label>carrera</label>
+          </div>
           <div class="input-field">
             <textarea formControlName="description" required spellcheck="false"
-              rows="6">Hola mi nombre es benjamin soy un estudiante de el instituto duoc uc que esta cursando la carrera de ingenieria en informatica. Voy ya en mi segundo año y estoy interesado por la ciberseguridad.</textarea>
+              rows="6"></textarea>
             <!-- <input type="text" required spellcheck="false"
             value="Hola mi nombre es benjamin soy un estudiante de el instituto duoc uc que esta cursando la carrera de ingenieria en informatica. Voy ya en mi segundo año y estoy interesado por la ciberseguridad."> -->
             <label>descripcion</label>

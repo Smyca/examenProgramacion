@@ -15,9 +15,10 @@
           <img alt="Foto de Matches" class="imagen-persona" [src]="user.photo ? user.photo: 'https://ionicframework.com/docs/img/demos/avatar.svg'"/>
           
           <ion-card-header>
+            <ion-card-title class="name-persona">{{user.username}}</ion-card-title>
             
             <ion-card-subtitle class="carrera-persona">{{user.carrera}}</ion-card-subtitle>
-            <ion-card-title class="name-persona">{{user.username}}</ion-card-title>
+            <ion-card-title class="name-persona">{{user.name}}</ion-card-title>
             <ion-card-title class="name-persona">{{user.age}}</ion-card-title>
           </ion-card-header>
           <ion-card-content class="descripcion-persona">
